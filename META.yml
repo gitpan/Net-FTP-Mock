@@ -25,7 +25,7 @@ requires:
   MooseX::HasDefaults::RW: 0
 resources:
   repository: http://github.com/wchristian/Net-FTP-Mock.git
-version: 0.103040
+version: 0.103050
 x_Dist_Zilla:
   plugins:
     -

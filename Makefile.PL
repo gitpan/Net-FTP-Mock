@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     'MooseX::ClassAttribute' => '0',
     'MooseX::HasDefaults::RW' => '0'
   },
-  'VERSION' => '0.103040',
+  'VERSION' => '0.103050',
   'test' => {
     'TESTS' => 't/*.t'
   }

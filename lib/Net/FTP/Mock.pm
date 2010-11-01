@@ -3,7 +3,7 @@ use warnings;
 
 package Net::FTP::Mock;
 BEGIN {
-  $Net::FTP::Mock::VERSION = '0.103040';
+  $Net::FTP::Mock::VERSION = '0.103050';
 }
 
 # ABSTRACT: test code using Net::FTP without having an FTP server
@@ -21,7 +21,7 @@ has host => ( isa => 'Str', is => 'ro', required => 1, initializer => '_check_ho
 has user => ( isa => 'Str' );
 has pass => ( isa => 'Str' );
 has message => ( isa => 'Str' );
-has account => ( isa => 'HashRef', lazy => 1, builder => '_get_account' );
+has _account => ( isa => 'HashRef', lazy => 1, builder => '_get_account' );
 has root => ( isa => 'Str', lazy => 1, default => sub { $_[0]->_account->{root} } );
 has code => ( isa => 'Int' );
 
@@ -162,7 +162,7 @@ Net::FTP::Mock - test code using Net::FTP without having an FTP server
 
 =head1 VERSION
 
-version 0.103040
+version 0.103050
 
 =head1 SYNOPSIS
 
@@ -243,6 +243,8 @@ Overrides isa to ensure that Moose's type checks recognize this as a Net::FTP ob
 =head2 login
 
 =head1 ACKNOWLEDGEMENTS
+
+Thanks to L<Tr@ffics|http://traffics.de> and especially Jens Muskewitz for granting permission to release this module.
 
 Many thanks to mst and rjbs who fielded my newbie questions in #moose and helped me figure out how to actually create
 the Mock object from Net::FTP's mainspace, as well as how to get the Mock object to masquerade as Net::FTP.
