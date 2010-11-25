@@ -3,7 +3,7 @@ use warnings;
 
 package Net::FTP::Mock;
 BEGIN {
-  $Net::FTP::Mock::VERSION = '0.103290';
+  $Net::FTP::Mock::VERSION = '0.103291';
 }
 
 # ABSTRACT: test code using Net::FTP without having an FTP server
@@ -167,7 +167,7 @@ Net::FTP::Mock - test code using Net::FTP without having an FTP server
 
 =head1 VERSION
 
-version 0.103290
+version 0.103291
 
 =head1 SYNOPSIS
 

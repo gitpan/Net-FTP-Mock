@@ -47,7 +47,7 @@
          "web" : "http://github.com/wchristian/Net-FTP-Mock"
       }
    },
-   "version" : "0.103290",
+   "version" : "0.103291",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
