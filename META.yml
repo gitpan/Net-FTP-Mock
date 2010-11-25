@@ -21,11 +21,10 @@ no_index:
 requires:
   File::Copy: 0
   Moose: 0
-  MooseX::ClassAttribute: 0
   MooseX::HasDefaults::RW: 0
 resources:
   repository: http://github.com/wchristian/Net-FTP-Mock.git
-version: 0.103050
+version: 0.103290
 x_Dist_Zilla:
   plugins:
     -

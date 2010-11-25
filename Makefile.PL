@@ -26,10 +26,9 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'File::Copy' => '0',
     'Moose' => '0',
-    'MooseX::ClassAttribute' => '0',
     'MooseX::HasDefaults::RW' => '0'
   },
-  'VERSION' => '0.103050',
+  'VERSION' => '0.103290',
   'test' => {
     'TESTS' => 't/*.t'
   }

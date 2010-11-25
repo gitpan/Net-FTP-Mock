@@ -3,7 +3,7 @@ use warnings;
 
 package Net::FTP::Mock;
 BEGIN {
-  $Net::FTP::Mock::VERSION = '0.103050';
+  $Net::FTP::Mock::VERSION = '0.103290';
 }
 
 # ABSTRACT: test code using Net::FTP without having an FTP server
@@ -11,11 +11,16 @@ BEGIN {
 
 use Moose;
 use MooseX::HasDefaults::RW;
-use MooseX::ClassAttribute;
 
 use File::Copy 'copy';
 
-class_has servers => ( isa => 'HashRef', is => 'rw', default => sub { {} } );
+{
+    my $servers;
+    sub servers {
+        return $servers if @_ < 2;
+        $servers = $_[1];
+    }
+}
 
 has host => ( isa => 'Str', is => 'ro', required => 1, initializer => '_check_host' );
 has user => ( isa => 'Str' );
@@ -162,7 +167,7 @@ Net::FTP::Mock - test code using Net::FTP without having an FTP server
 
 =head1 VERSION
 
-version 0.103050
+version 0.103290
 
 =head1 SYNOPSIS
 
@@ -215,6 +220,10 @@ test code using Net::FTP without having an FTP server
 
 Factory method that is implanted into Net::FTP's namespace and returns a Net::FTP::Mock object. Should behave exactly
 like Net::FTP's new() behaves.
+
+=head2 servers
+
+Class attribute that stores the servers hashref passed when the module is used.
 
 =head2 Net::FTP::Mock->import( %server_details );
 
