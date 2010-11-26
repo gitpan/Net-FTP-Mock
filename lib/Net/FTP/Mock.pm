@@ -3,14 +3,13 @@ use warnings;
 
 package Net::FTP::Mock;
 BEGIN {
-  $Net::FTP::Mock::VERSION = '0.103291';
+  $Net::FTP::Mock::VERSION = '0.103300';
 }
 
 # ABSTRACT: test code using Net::FTP without having an FTP server
 
 
 use Moose;
-use MooseX::HasDefaults::RW;
 
 use File::Copy 'copy';
 
@@ -23,18 +22,18 @@ use File::Copy 'copy';
 }
 
 has host => ( isa => 'Str', is => 'ro', required => 1, initializer => '_check_host' );
-has user => ( isa => 'Str' );
-has pass => ( isa => 'Str' );
-has message => ( isa => 'Str' );
-has _account => ( isa => 'HashRef', lazy => 1, builder => '_get_account' );
-has root => ( isa => 'Str', lazy => 1, default => sub { $_[0]->_account->{root} } );
-has code => ( isa => 'Int' );
+has user => ( is => 'rw', isa => 'Str' );
+has pass => ( is => 'rw', isa => 'Str' );
+has message => ( is => 'rw', isa => 'Str' );
+has _account => ( is => 'rw', isa => 'HashRef', lazy => 1, builder => '_get_account' );
+has root => ( is => 'rw', isa => 'Str', lazy => 1, default => sub { $_[0]->_account->{root} } );
+has code => ( is => 'rw', isa => 'Int' );
 
 
 sub Net::FTP::new {
     my ( undef, @args ) = @_;
 
-    my $ftp = Net::FTP::Mock->new( @args );
+    my $ftp = Net::FTP::Mock->new( host => @args );
     return $ftp if !$ftp->message;
 
     $@ = $ftp->message;
@@ -56,11 +55,6 @@ sub isa {
     return 1 if $_[1] eq 'Net::FTP';
     return $_[0]->UNIVERSAL::isa($_[1]);
 }
-
-sub BUILDARGS {
-    my ( $class, $host, @args ) = @_;
-    return { host => $host, @args };
-};
 
 sub _check_host {
     my ( $self, $host, $set_function ) = @_;
@@ -167,7 +161,7 @@ Net::FTP::Mock - test code using Net::FTP without having an FTP server
 
 =head1 VERSION
 
-version 0.103291
+version 0.103300
 
 =head1 SYNOPSIS
 

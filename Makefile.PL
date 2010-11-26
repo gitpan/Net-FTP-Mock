@@ -25,10 +25,9 @@ my %WriteMakefileArgs = (
   'NAME' => 'Net::FTP::Mock',
   'PREREQ_PM' => {
     'File::Copy' => '0',
-    'Moose' => '0',
-    'MooseX::HasDefaults::RW' => '0'
+    'Moose' => '0'
   },
-  'VERSION' => '0.103291',
+  'VERSION' => '0.103300',
   'test' => {
     'TESTS' => 't/*.t'
   }

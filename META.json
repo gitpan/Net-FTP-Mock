@@ -27,8 +27,7 @@
       "runtime" : {
          "requires" : {
             "File::Copy" : 0,
-            "Moose" : 0,
-            "MooseX::HasDefaults::RW" : 0
+            "Moose" : 0
          }
       },
       "test" : {
@@ -47,7 +46,7 @@
          "web" : "http://github.com/wchristian/Net-FTP-Mock"
       }
    },
-   "version" : "0.103291",
+   "version" : "0.103300",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
